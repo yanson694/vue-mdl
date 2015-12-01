@@ -9,10 +9,10 @@ if ! git config user.email || ! git config user.name; then
 fi
 
 git pull --rebase && \
-git merge --no-edit $br && \
+git merge -X theirs --no-edit $br && \
 npm run doc && \
 cp doc/index.html . && \
-git add index.html && \
+git add index.html doc-bundle.js && \
 git commit -a --amend --no-edit && \
 git push origin gh-pages && \
 git checkout $br || exit 1
