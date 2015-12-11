@@ -7,6 +7,11 @@ module.exports = {
     path: './',
     filename: 'doc-bundle.js',
   },
+  vue: {
+    preLoaders: {
+      coffee: 'coffeelint'
+    }
+  },
   module: {
     loaders: [{
       test: /\.coffee$/,
@@ -14,7 +19,7 @@ module.exports = {
         path.resolve(__dirname, '../doc/src'),
         path.resolve(__dirname, '../src')
       ],
-      loader: 'coffee-loader'
+      loader: 'coffee!coffeelint'
     }, {
       test: /\.vue$/,
       loader: 'vue'
@@ -23,13 +28,13 @@ module.exports = {
       loader: 'url-loader?limit=100000'
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: 'style!css'
     }, {
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass']
     }, {
       test: /\.(png|jpg|svg)(\?embed)?$/,
-      loader: 'url-loader?limit=25000'
+      loader: 'url?limit=25000'
     }]
   },
   plugins: [
