@@ -8,8 +8,8 @@ module.exports = {
     publicPath: 'test/unit'
   },
   vue: {
-    preLoaders: {
-      coffee: 'coffeelint'
+    loaders: {
+      coffee: 'ibrik-instrumenter!coffeelint'
     }
   },
   module: {
@@ -19,7 +19,7 @@ module.exports = {
         path.resolve(__dirname, '../test/unit'),
         path.resolve(__dirname, '../src')
       ],
-      loader: 'coffee!coffeelint'
+      loader: 'ibrik-instrumenter!coffeelint'
     }, {
       test: /\.vue$/,
       loader: 'vue'
