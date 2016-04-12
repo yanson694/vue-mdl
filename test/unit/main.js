@@ -53,7 +53,8 @@ const app = new Vue({
       'card',
       'snackbar',
       'select',
-      'dialog'
+      'dialog',
+      'tabs'
     ],
     current: 0
   },
@@ -109,7 +110,8 @@ const app = new Vue({
     testCard: require('../components/card.vue'),
     testSnackbar: require('../components/snackbar.vue'),
     testSelect: require('../components/select.vue'),
-    testDialog: require('../components/dialog.vue')
+    testDialog: require('../components/dialog.vue'),
+    testTabs: require('../components/tabs.vue')
   }
 })
 
@@ -133,6 +135,7 @@ describe('Vue MDL', function () {
   require('./specs/snackbar')
   require('./specs/select')
   require('./specs/dialog')
+  require('./specs/tabs')
   // This must be the last
   require('./specs/vue-mdl')
 })
